@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gallery Basketball</title>
+<style>
+  :root {
+    --court: #c8792e;
+    --court-dark: #8a4a14;
+    --line: #f6ead2;
+    --ink: #1b1209;
+    --ball: #e8651a;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: "Trebuchet MS", Arial, sans-serif;
+    color: var(--line);
+    background:
+      /* court lines */
+      radial-gradient(circle at 50% 0, transparent 120px, var(--line) 121px, var(--line) 124px, transparent 125px),
+      repeating-linear-gradient(90deg, var(--court) 0 46px, var(--court-dark) 46px 92px);
+    background-attachment: fixed;
+  }
+  .overlay { background: rgba(27, 18, 9, .55); min-height: 100vh; padding: 20px 16px 90px; }
+  h1 { margin: 0 0 6px; font-size: 2.4rem; letter-spacing: 1px; }
+  h2 {
+    margin: 18px 0 4px; font-size: 1.8rem; color: var(--ball);
+    text-shadow: 0 0 14px rgba(232, 101, 26, .8);
+  }
+  .sub { margin: 0 0 18px; color: #ffd9b0; }
+  button.logout {
+    margin: 10px 0; padding: 8px 16px; font-size: 1rem;
+    background: var(--line); border: 2px solid var(--ink); border-radius: 6px; cursor: pointer;
+  }
+  .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+  .card {
+    position: relative; aspect-ratio: 3 / 4; overflow: hidden;
+    border: 3px solid var(--line); border-radius: 18px;
+    background: #2a1a0c center / cover no-repeat;
+    transition: transform .25s, border-color .25s, box-shadow .25s;
+  }
+  .card:active, .card:hover {
+    transform: scale(1.03); border-color: var(--ball);
+    box-shadow: 0 0 22px rgba(232, 101, 26, .8);
+  }
+  .card span {
+    position: absolute; left: 0; right: 0; bottom: 0; padding: 22px 10px 8px;
+    background: linear-gradient(transparent, rgba(0, 0, 0, .8)); font-weight: bold;
+  }
+  /* bouncing ball */
+  .ball {
+    display: inline-block; width: 1.1em; height: 1.1em; border-radius: 50%;
+    background:
+      linear-gradient(var(--ink), var(--ink)) center / 100% 2px no-repeat,
+      linear-gradient(var(--ink), var(--ink)) center / 2px 100% no-repeat,
+      var(--ball);
+    vertical-align: middle; animation: bounce .8s ease-in infinite alternate;
+  }
+  @keyframes bounce { from { transform: translateY(-10px); } to { transform: translateY(4px); } }
+  @media (prefers-reduced-motion: reduce) { .ball { animation: none; } }
+
+  /* music player */
+  .player {
+    position: fixed; left: 0; right: 0; bottom: 0; display: flex; align-items: center; gap: 12px;
+    padding: 12px 16px; background: var(--ink); border-top: 3px solid var(--ball);
+  }
+  .player button {
+    width: 44px; height: 44px; border-radius: 50%; border: 0; cursor: pointer;
+    background: var(--ball); color: #fff; font-size: 1.2rem;
+  }
+  .player input[type=range] { flex: 1; accent-color: var(--ball); }
+  .player small { color: #ffd9b0; }
+</style>
+</head>
+<body>
+<div class="overlay">
+  <h1>MY .BASKETBALL</h1>
+  <button class="logout" onclick="location.href='login.html'">LOGOUT</button>
+
+  <h2>BASKETBALL GALLERY <span class="ball"></span></h2>
+  <p class="sub">Court, hoops &amp; game day.</p>
+
+  <!-- Replace each url() with your own basketball image file or link -->
+  <div class="grid">
+    <div class="card" style="background-image:url('dodoy1.jpeg')"><span>🏀 Me 1</span></div>
+    <div class="card" style="background-image:url('dodoy2.jpeg')"><span>🏀 Me 2</span></div>
+    <div class="card" style="background-image:url('dodoy3.jpeg')"><span>🏀 Me 3</span></div>
+    <div class="card" style="background-image:url('dodoy4.jpeg')"><span>🏀 Me 4</span></div>
+    <div class="card" style="background-image:url('dodoy5.jpeg')"><span>🏀 Me 5</span></div>
+    <div class="card" style="background-image:url('dodoy6.jpeg')"><span>🏀 Me 6</span></div>
+  </div>
+</div>
+
+<audio id="bgm" src="7years.mp3" loop></audio>
+<script>
+const bgm = document.getElementById('bgm');
+bgm.volume = 0.6;
+document.addEventListener('click', function first() {
+  bgm.play().catch(() => {});
+  document.removeEventListener('click', first);
+});
+</script>
+</body>
+</html>

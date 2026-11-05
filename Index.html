@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Home - My Basketball</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif;}
+body{background:#080c14;color:white;min-height:100vh;padding-bottom:90px;}
+.top-bar{display:flex;justify-content:space-between;align-items:center;padding:18px 20px;background:#0c111c;border-bottom:1.5px solid #ff6a00;position:sticky;top:0;}
+.top-bar h1{font-weight:900;font-size:22px;}
+.top-bar span{color:#ff6a00;text-shadow:0 0 10px #ff6a00;}
+.logout-btn{border:1.5px solid #ff6a00;color:#ff6a00;background:transparent;padding:7px 18px;border-radius:8px;font-weight:bold;cursor:pointer;}
+.container{padding:30px 20px;text-align:center;}
+.hero{margin-top:40px;}
+.hero h1{font-size:32px;color:#ff6a00;text-shadow:0 0 15px #ff6a00;line-height:1.2;}
+.hero p{color:#ff9a4d;margin-top:15px;font-size:15px;line-height:1.5;}
+.card{margin-top:30px;background:rgba(255,106,0,0.12);border:1px solid #ff6a00;border-radius:20px;padding:25px;}
+.card h3{color:#ff6a00;margin-bottom:10px;}
+.bottom-nav{position:fixed;bottom:10px;left:50%;transform:translateX(-50%);width:92%;max-width:450px;background:#0c111c;border:1.5px solid #ff6a00;border-radius:25px;display:flex;justify-content:space-around;padding:10px 5px;}
+.bottom-nav a{text-decoration:none;color:#777;font-size:10px;text-align:center;font-weight:bold;}
+.bottom-nav a.active{color:#ff6a00;}
+.bottom-nav a span{display:block;font-size:18px;}
+nav {
+  position: fixed;
+  z-index: 9999;
+}
+</style>
+</head>
+<body>
+
+<div class="top-bar">
+  <h1>MY <span>.BASKETBALL</span></h1>
+  <button class="logout-btn" onclick="location='login.html'">LOGOUT</button>
+</div>
+
+<div class="container">
+  <div class="hero">
+    <h1>WELCOME 🏀<br>MY BASKETBALL</h1>
+    <p>Hello! I'm from BACALAN,SEBASTE, ANTIQUE.<br>Basketball is my passion!</p>
+  </div>
+  <div class="card">
+    <h3>🏀 My Journey</h3>
+    <p style="font-size:13px;color:#ddd;">BSIS Student | Basketball Lover | Future PBA Player</p>
+  </div>
+</div>
+
+<div class="bottom-nav">
+  <a href="Index.html" class="active"><span>⌂</span>HOME</a>
+  <a href="gallery.html"><span>◫</span>PHOTO</a>
+  <a href="skills.html"><span>✦</span>SKILLS</a>
+  <a href="goals.html"><span>◎</span>GOALS</a>
+  <a href="funfacts.html"><span>☺</span>FUN</a>
+  <a href="contact.html"><span>○</span>CONTACT</a>
+</div>
+
+<script>
+if(localStorage.getItem('logged')!=='true'){location='login.html';}
+</script>
+</body>
+</html>

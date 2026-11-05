@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fun Hoops</title>
+<style>
+  :root {
+    --court: #c8651b;
+    --court-dark: #7a3a0c;
+    --ink: #1b1b1b;
+    --ball: #ff7a1a;
+    --line: #fff3e0;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    padding: 20px;
+    font-family: "Trebuchet MS", Arial, sans-serif;
+    background: #fff;
+    color: var(--ink);
+  }
+  h1.site { font-size: 2.6rem; margin: 10px 0 18px; font-weight: 900; }
+  .logout {
+    font-size: 1.1rem;
+    padding: 8px 14px;
+    border: 2px solid #777;
+    border-radius: 6px;
+    background: #eee;
+    cursor: pointer;
+  }
+  h2.title {
+    font-size: 2.4rem;
+    margin: 28px 0 6px;
+    color: var(--ball);
+    font-weight: 900;
+  }
+  p.sub { color: var(--court); font-size: 1.1rem; margin: 0 0 24px; }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+  .card {
+    min-height: 220px;
+    padding: 24px;
+    border-radius: 20px;
+    border: 2px solid var(--ball);
+    color: var(--line);
+    font-size: 1.15rem;
+    line-height: 1.35;
+    background:
+      repeating-linear-gradient(90deg, rgba(255,255,255,.05) 0 28px, transparent 28px 56px),
+      linear-gradient(135deg, var(--court-dark), var(--court));
+  }
+  .card .icon { font-size: 2.4rem; display: block; margin: 20px 0 14px; }
+  .card.bounce:hover .icon, .card.bounce:active .icon {
+    animation: bounce .6s ease;
+  }
+  @keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-14px); }
+    70% { transform: translateY(0); }
+    85% { transform: translateY(-5px); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .card.bounce:hover .icon, .card.bounce:active .icon { animation: none; }
+  }
+</style>
+</head>
+<body>
+
+<h1 class="site">MY .HOOPS</h1>
+<button class="logout" onclick="location.href='index.html'">LOGOUT</button>
+
+<h2 class="title">FUN FACTS 🏀 Hoops</h2>
+<p class="sub">Basketball fun facts - animated!</p>
+
+<div class="grid">
+  <div class="card bounce"><span class="icon">🏀</span>Basketball lover - playing every weekend in Buruanga!</div>
+  <div class="card bounce"><span class="icon">🏆</span>Champion mindset - 5 tournaments joined already!</div>
+  <div class="card bounce"><span class="icon">⛹️</span>Court rat - Born in Buruanga, the court is home!</div>
+  <div class="card bounce"><span class="icon">🔥</span>Three-point shooter - always shooting from downtown!</div>
+  <div class="card bounce"><span class="icon">👟</span>Sneakerhead - 20 pairs of shoes at home!</div>
+  <div class="card bounce"><span class="icon">📺</span>NBA addict - never misses a game night!</div>
+</div>
+
+</body>
+</html>

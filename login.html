@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Login Basketball</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif;}
+body{min-height:100vh;background:#080c14;display:flex;justify-content:center;align-items:center;padding:20px;}
+.login-container{width:100%;max-width:380px;background:#121827;border:2px solid #ff6a00;border-radius:30px;padding:35px 25px;box-shadow:0 0 30px rgba(255,106,0,0.4);text-align:center;}
+h2{font-size:32px;font-weight:900;color:white;margin-bottom:25px;}
+h2 span{color:#ff6a00;text-shadow:0 0 15px #ff6a00;}
+.tabs{display:flex;gap:10px;margin-bottom:25px;}
+.tab{flex:1;height:46px;border-radius:25px;border:1px solid #ff6a00;background:#1a1f2e;color:#888;font-size:16px;cursor:pointer;font-weight:bold;}
+.tab.active{background:#ff6a00;color:white;box-shadow:0 0 20px #ff6a00;}
+input{width:100%;height:52px;background:#080c14;border:1.5px solid rgba(255,106,0,0.3);border-radius:25px;padding:0 20px;color:white;font-size:15px;outline:none;margin-bottom:18px;}
+.btn{width:100%;height:52px;background:#ff6a00;border:none;border-radius:25px;color:white;font-size:18px;font-weight:bold;cursor:pointer;box-shadow:0 5px 20px rgba(255,106,0,0.4);}
+#msg{color:#ff6a00;margin-top:15px;font-weight:bold;}
+</style>
+</head>
+<body>
+
+<div class="login-container">
+  <h2>MY <span>BASKETBALL</span> 🏀</h2>
+  
+  <div class="tabs">
+    <button class="tab active" id="loginTab" onclick="showLogin()">Login</button>
+    <button class="tab" id="signupTab" onclick="showSignup()">Sign Up</button>
+  </div>
+
+  <div id="login-form">
+    <input type="text" id="loginUser" placeholder="Username">
+    <input type="password" id="loginPass" placeholder="Password">
+    <button class="btn" onclick="login()">Login</button>
+  </div>
+
+  <div id="signup-form" style="display:none">
+    <input type="text" id="signUser" placeholder="New Username">
+    <input type="password" id="signPass" placeholder="New Password">
+    <button class="btn" onclick="signup()">Create</button>
+  </div>
+
+  <p id="msg"></p>
+</div>
+
+<script>
+// DALAWANG SEPARATE FUNCTION PARA SURE NA MA-PINDOT
+function showLogin(){
+  document.getElementById('login-form').style.display='block';
+  document.getElementById('signup-form').style.display='none';
+  document.getElementById('loginTab').classList.add('active');
+  document.getElementById('signupTab').classList.remove('active');
+}
+
+function showSignup(){
+  document.getElementById('login-form').style.display='none';
+  document.getElementById('signup-form').style.display='block';
+  document.getElementById('signupTab').classList.add('active');
+  document.getElementById('loginTab').classList.remove('active');
+}
+
+function signup(){
+  let u=document.getElementById('signUser').value;
+  let p=document.getElementById('signPass').value;
+  if(u&&p){
+    localStorage.setItem('user',u);
+    localStorage.setItem('pass',p);
+    document.getElementById('msg').innerText='Created! 🏀 Pwede ka na mag Login';
+    showLogin(); // Auto balik sa login
+  }else{
+    document.getElementById('msg').innerText='Lagyan mo lahat!';
+  }
+}
+
+function login(){
+  let u=document.getElementById('loginUser').value;
+  let p=document.getElementById('loginPass').value;
+  if(u==localStorage.getItem('user')&&p==localStorage.getItem('pass')){
+    localStorage.setItem('logged','true');
+    location='index.html';
+  }else{
+    document.getElementById('msg').innerText='Wrong username or password!';
+  }
+}
+</script>
+
+</body>
+</html>

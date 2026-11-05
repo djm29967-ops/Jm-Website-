@@ -1,0 +1,5 @@
+body{margin:0;height:100vh;display:flex;justify-content:center;align-items:center;background:linear-gradient(135deg,#001a0f,#002a1a,#004d2e,#00c853);font-family:Arial}
+.login-container{background:rgba(0,26,15,0.92);padding:30px;border-radius:20px;width:340px;text-align:center;border:1px solid #00c853;color:#fff;box-shadow:0 0 30px rgba(0,200,83,0.3)}
+.tabs{display:flex;gap:8px;margin:12px 0}.tab{flex:1;padding:9px;border:none;background:#111;border-radius:15px;color:#fff;cursor:pointer}.tab.active{background:#00c853;box-shadow:0 0 15px #00c853}
+input{width:90%;padding:11px;margin:7px 0;background:rgba(0,0,0,0.5);border:1px solid rgba(0,200,83,0.3);border-radius:15px;color:#fff}
+button.btn{width:95%;padding:11px;background:linear-gradient(135deg,#00c853,#00e676);color:#fff;border:none;border-radius:15px;margin-top:8px;cursor:pointer;font-weight:bold}
